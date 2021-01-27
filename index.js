@@ -118,7 +118,7 @@ try {
 		const arr2 = [5, 6];
 		
 		// Change after = to let the test pass. DO NOT use concat or loops, but use the spread operator.
-		let result = [0];
+		let result = [...arr1, value, ...arr2];
 
 		// Don't make changes below this line	
 		
@@ -130,12 +130,10 @@ try {
 
   /// Arrow functions ///
 
-  /*
+  
 	(function UseArrow1() {
 		// Rewrite double as arrow function and make the test pass.
-		let double = function (x) {
-			return x;
-		};
+		let double = x => x * 2;
 
 		// Don't make changes below this line	
 		
@@ -144,12 +142,12 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
+
+  
 	(function UseArrow2() {
 		// Correct the errors in the arrow function.
-		let add = x, y => return x * y;
+		let add = (x, y) =>  x + y;
 
 		// Don't make changes below this line	
 		
@@ -158,19 +156,18 @@ try {
 		
 		solved++;
 	})();
-	*/
+	
 
   /// Destructuring ///
 
-  /*
+  
 	(function UseArrayDestructuring1() {
 		const arr = [1, 2, 3, 4, 5, 6];
 		
 		// Use array destructuring to change the 3 statements below into 1 statement.
 		// Tip: Spread operator might be needed too.
-		let a = arr[0];
-		let b = arr[2];
-		let c = arr.slice(3); 
+		
+		let [a, , b, ...c] = arr;
 
 		// Don't make changes below this line	
 		
@@ -180,18 +177,17 @@ try {
 		
 		solved++;
 	})();
-	*/
+	
 
-  /*
+  
 	(function UseArrayDestructuring2() {
 		let a = 1;
 		let b = 2;
 		
 		// Use array destructuring to change the 3 statements below into 1 statement.
 		// You should not need a temporary variable anymore.
-		let tmp = a;
-		a = b;
-		b = tmp; 
+
+		[a, b] = [b, a]
 
 		// Don't make changes below this line	
 		
@@ -200,9 +196,9 @@ try {
 		
 		solved++;
 	})();
-	*/
+	
 
-  /*
+
 	(function UseObjectDestructuring1() {
 		let obj = {
 			name: 'Oslo',
@@ -211,9 +207,8 @@ try {
 		}
 		
 		// Use object destructuring to change the 3 statements below into 1 statement.
-		let name = obj.name;
-		let age = obj.age;
-		let add = obj.add;
+
+		let {name, age, add} = obj;
 
 		// Don't make changes below this line	
 		
@@ -223,9 +218,9 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
+
+  
   (function UseParameterDestructuring1() {
     // Adjust the code to let the test succeed.
 
@@ -242,7 +237,7 @@ try {
 
     solved++;
   })();
-	*/
+	
 
   /*
   (function UseParameterDestructuring2() {
