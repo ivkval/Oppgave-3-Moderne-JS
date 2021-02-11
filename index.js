@@ -397,9 +397,10 @@ try {
 		let two = x => x + x;
 		let three = (x, y) => x + y;
 		let four = (x, y) => {
+			let result = 0;
 			for (let i = x; i < y; i++)
-				x += i;
-			return x;
+				result += i;
+			return result;
 			};
 		console.log(four(3, 6))
 
@@ -416,7 +417,7 @@ try {
 
   /// Destructuring (bonus) ///
 
-  /*
+  
 	(function UseObjectDestructuring2() {
 		let obj = {
 			name: 'Oslo',
@@ -436,7 +437,7 @@ try {
 		
 		solvedBonus++;
 	})();
-	*/
+	
 	
 	/*
 	// Spør undeviser
