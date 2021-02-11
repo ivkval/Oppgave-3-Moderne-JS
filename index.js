@@ -311,7 +311,6 @@ try {
 		// - Do use object spread properties
 		// - Think about the order!
 		let result = { ...obj1, ...obj3, ...obj2 };
-		console.log(result)
 
 		// Don't make changes below this line	
 		
@@ -329,12 +328,17 @@ try {
 
   /// Method definitions (bonus) ///
 
-  /*
+
 	(function UseMethodDefinitions() {
 		// Use method properties to remove unnecessary syntax. DO NOT use arrow functions.
-		let obj = {
+		/*let obj = {
 			add: function (a, b) { return a + b; },
 			subtract: function (a, b) { return a - b; }
+		}*/
+
+		let obj = {
+			add(a, b) {return a + b}, 
+			subtract(a, b) {return a - b}
 		}
 
 		// Don't make changes below this line	
@@ -344,14 +348,20 @@ try {
 		
 		solvedBonus++;
 	})();
-	*/
 
   /// class (bonus) ///
 
-  /*
+  
 	(function UseClass() {
 		// Let Multiplier be a class with the appropriate methods to succeed.
-		let Multiplier = 'class';
+		let Multiplier = class {
+			constructor(num) {
+				this.num = num;
+			}
+
+			multiply = inp => inp * this.num;
+			 
+		};
 
 		// Don't make changes below this line	
 		
@@ -361,14 +371,14 @@ try {
 		
 		solvedBonus++;
 	})();
-	*/
+	
 
   /// Template strings (bonus) ///
 
-  /*
+  
 	(function UseTemplateStrings2() {
 		// Rewrite the line below to use a template string.
-		const text = 'line 1line 2';
+		const text = `line 1\nline 2`;
 
 		// Don't make changes below this line	
 		
@@ -376,22 +386,22 @@ try {
 		
 		solvedBonus++;
 	})();
-	*/
+	
 
   /// Arrow functions (bonus) ///
 
-  /*
+  
 	(function UseArrow3() {
 		// Rewrite all functions as arrow functions. Use as minimal syntax as possible.
-		let one = function () { return 1; };
-		let two = function (x) { return x + x; };
-		let three = function (x, y) { return x + y; };
-		let four = function (x, y) {
-			let result = 0;
+		let one = () => 1;
+		let two = x => x + x;
+		let three = (x, y) => x + y;
+		let four = (x, y) => {
 			for (let i = x; i < y; i++)
-				result += i;
-			return result;
+				x += i;
+			return x;
 			};
+		console.log(four(3, 6))
 
 		// Don't make changes below this line	
 		
@@ -402,7 +412,7 @@ try {
 		
 		solvedBonus++;
 	})();
-	*/
+	
 
   /// Destructuring (bonus) ///
 
@@ -415,9 +425,8 @@ try {
 		}
 		
 		// Use object destructuring to change the 3 statements below into 1 statement.
-		let a = obj.name;
-		let b = obj.age;
-		let c = obj.add;
+
+		let {name: a, age: b, add: c} = obj;
 
 		// Don't make changes below this line	
 		
@@ -428,13 +437,14 @@ try {
 		solvedBonus++;
 	})();
 	*/
-
-  /*
+	
+	/*
+	// Spør undeviser
 	(function UseFailSoftDestructuring() {
 		const arr = [1, 2];
 		
     // change the left side (before =) below to let the tests succeed.
-		let [a, b] = arr;
+		let [a = arr, b = arr, c = 3, d] = arr; // Use default value on c?
 
 		// Don't make changes below this line	
 		
@@ -488,16 +498,15 @@ try {
 
   /// Iterable (bonus) ///
 
-  /*
+  
 	(function UseGeneratorFunction() {
 		// Rewrite the function below to be a generator function ("function*" and "yield").
-		function range(start, end) {
+		function* range(start, end) {
 			let list = [];
 			while (start < end) {
 				list.push(start);
-				start++;
+				yield start++;
 			}
-			return list;
 		}	
 
 		// Don't make changes below this line	
@@ -511,7 +520,7 @@ try {
 
 		solvedBonus++;
 	})();
-	*/
+	
 
   if (solved === toSolve) {
     console.log(`
